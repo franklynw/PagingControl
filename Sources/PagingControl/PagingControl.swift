@@ -55,7 +55,7 @@ public struct PagingControl<V>: View where V: PagingViewModel {
     }
     
     
-    init(_ pagingViewModel: V) {
+    public init(_ pagingViewModel: V) {
         
         self.pagingViewModel = pagingViewModel
         
