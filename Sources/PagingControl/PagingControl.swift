@@ -55,6 +55,8 @@ public struct PagingControl<V>: View where V: PagingViewModel {
     }
     
     
+    /// Initialiser
+    /// - Parameter pagingViewModel: a model which conforms to the PagingViewModel protocol
     public init(_ pagingViewModel: V) {
         
         self.pagingViewModel = pagingViewModel
