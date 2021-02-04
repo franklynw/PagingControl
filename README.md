@@ -2,8 +2,7 @@
 
 An attractive page control component which can be used with any paging model which conforms to the PagingViewModel protocol.
 
-<img src="Resources//Example1.png" alt="Example 1"/>
-<img src="Resources//Example2.png" alt="Example 2"/>
+<img src="Resources//Example1.png" alt="Example 1"/> <img src="Resources//Example2.png" alt="Example 2"/>
 
 ## Installation
 
@@ -53,7 +52,7 @@ var body: some View {
 
     ZStack {
     
-        // This component is a SwiftUIPager (see link below) but you could easily make your own
+        // This component is a SwiftUIPager (see link at foot of page) but you could easily make your own
         Pager(page: viewModel.pageIndex, data: pageViewModels) {
             return PageView(viewModel: $0)
         }
@@ -130,6 +129,11 @@ These control the circle size tailing-off and magnification. The cases are -
 * .custom(CGFloat)        - lets you specify your own rate
 
 The magnification options are identical
+
+
+### SwiftUIPager
+
+The component which inspired me to write this control is the SwiftUIPager, which can be found [here](https://github.com/fermoya/SwiftUIPager) - this is a great (in my view, much better than Apple's) implementation of Paging, and it works perfectly with PagingControl
 
 
 ## License  
