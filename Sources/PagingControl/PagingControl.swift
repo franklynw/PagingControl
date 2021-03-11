@@ -78,6 +78,9 @@ public struct PagingControl<V>: View where V: PagingViewModel {
                             circle(for: $0)
                         }
                     }
+                    .padding()
+                    .contentShape(Rectangle())
+                    .background(Color(UIColor.black.withAlphaComponent(0.001))) // if we use clear, it doesn't respond to long presses
                     .scaleEffect(isPanning ? magnification.magnificationValue : 1)
                     .animation(.spring())
                 }
@@ -104,6 +107,11 @@ public struct PagingControl<V>: View where V: PagingViewModel {
                         .stroke(Color(item.borderColor), lineWidth: 0.5)
                 )
                 .onTapGesture {
+                    
+                    if pagingViewModel.currentPage != item.pageIndex {
+                        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                    }
+                    
                     self.startingPageIndex = item.pageIndex
                     self.pagingViewModel.currentPage = item.pageIndex
                 }
@@ -143,6 +151,9 @@ public struct PagingControl<V>: View where V: PagingViewModel {
         let pageOffset = Int(max(min(touchOffset, CGFloat(count - startingPageIndex - 1)), -CGFloat(startingPageIndex)))
         let updatedPageNumber = min(max(0, startingPageIndex + pageOffset), count - 1)
         
+        if pagingViewModel.currentPage != updatedPageNumber {
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        }
         pagingViewModel.currentPage = updatedPageNumber
     }
     
