@@ -136,6 +136,6 @@ The magnification options are identical
 The component which inspired me to write this control is the SwiftUIPager, which can be found [here](https://github.com/fermoya/SwiftUIPager) - this is a great (in my view, much better than Apple's) implementation of Paging, and it works perfectly with PagingControl
 
 
-## License  
+## Licence  
 
-`PagingControl` is available under the MIT license
+`PagingControl` is available under the MIT licence
